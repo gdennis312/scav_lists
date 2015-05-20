@@ -1,0 +1,24 @@
+#!/bin/bash
+
+mkdir scav_lists
+cd scav_lists
+
+for year in `seq 1987 2011`
+do
+    curl -O http://scavhunt.uchicago.edu/lists/$year.pdf
+done
+
+curl -O http://scavhunt.uchicago.edu/lists/scavlist2012.pdf
+curl -O http://scavhunt.uchicago.edu/lists/list2014final.pdf
+curl -O http://scavhunt.uchicago.edu/lists/list2014final_2.pdf
+curl -O http://scavhunt.uchicago.edu/lists/list2015_final.pdf
+curl -O http://scavhunt.uchicago.edu/lists/2002-Abductees.pdf
+curl -O http://scavhunt.uchicago.edu/lists/2004-AllStars.pdf
+curl -O http://scavhunt.uchicago.edu/lists/VegasBaby.pdf
+
+mkdir {2002,2004,2008}
+mv {2002.pdf,2002-Abductees.pdf} 2002/
+mv {2004.pdf,2004-AllStars.pdf} 2004/
+mv {2008.pdf,VegasBaby.pdf} 2008/
+cd ../
+echo "Yep, should be good."
